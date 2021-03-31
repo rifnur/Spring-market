@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -51,15 +51,40 @@
         </ul>
     </div>
 
-    <div class="content p-4">
-        <h2 class="mb-4">Blank/Starter</h2>
-
-        <div class="card mb-4">
-            <div class="card-body">
-                This is a blank page you can use as a starting point.
+    <div class="container">
+        <div class="row py-2">
+            <div class="col-12">
+                <form th:action="@{/product/update}" th:method="post" th:object="${product}">
+                    <input type="hidden" th:field="*{id}">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" th:field="*{title}" placeholder="Enter name">
+                        <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Name shouldn't be empty</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" th:field="*{description}" placeholder="Enter description">
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" class="form-control" th:field="*{price}" placeholder="Enter price">
+                        <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price shouldn't be empty</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </div>
+
+<!--    <div class="content p-4">-->
+<!--        <h2 class="mb-4">Blank/Starter</h2>-->
+
+<!--        <div class="card mb-4">-->
+<!--            <div class="card-body">-->
+<!--                This is a blank page you can use as a starting point.-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
 <script src="js/jquery.min.js"></script>

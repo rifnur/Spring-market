@@ -18,7 +18,7 @@ public class Role implements Serializable {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private List<ru.geekbrains.persist.model.User> users;
+    private List<User> users;
 
     public Role() {
     }
@@ -43,11 +43,11 @@ public class Role implements Serializable {
         this.name = name;
     }
 
-    public List<ru.geekbrains.persist.model.User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<ru.geekbrains.persist.model.User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 

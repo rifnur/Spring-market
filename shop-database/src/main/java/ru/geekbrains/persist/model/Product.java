@@ -1,40 +1,60 @@
 package ru.geekbrains.persist.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column
-            (length = 150, nullable = false)
+    @Column  (name = "title", length = 150, nullable = false)
     private String title;
 
     @Column
-            (length = 255, nullable = false)
+            (name = "description", length = 255, nullable = false)
     private String description;
 
     @Column
-            ( nullable = false)
+            (name = "price", nullable = false)
     private BigDecimal price;
 
     @ManyToOne(optional = false)
     private Category category;
 
+    @ManyToOne(optional = false)
+    private Brand brand;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Picture> pictures;
+
     public Product() {
     }
 
-    public Product(Long id, String title, BigDecimal price) {
+    public Product(Long id, String title, BigDecimal price, Category category, Brand brand) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.price = price;    }
+        this.price = price;
+        this.category = category;
+        this.brand = brand;}
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) { this.brand = brand;  }
+
+    public List<Picture> getPictures() { return pictures; }
+
+    public void setPictures(List<Picture> pictures) {this.pictures = pictures; }
 
     public Long getId() {
         return id;

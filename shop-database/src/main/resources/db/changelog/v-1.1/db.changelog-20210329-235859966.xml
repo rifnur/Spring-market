@@ -33,6 +33,8 @@
         <addUniqueConstraint columnNames="name" constraintName="UC_CATEGORIESNAME_COL" tableName="categories"/>
     </changeSet>
     <changeSet author="rifnur (generated)" id="1617062345948-4">
-        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="products" constraintName="FKog2rp4qthbtt2lfyhfo32lsw9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="categories" validate="true"/>
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="products"
+                                 constraintName="FKog2rp4qthbtt2lfyhfo32lsw9" deferrable="false" initiallyDeferred="false"
+                                 referencedColumnNames="id" referencedTableName="categories" validate="true"/>
     </changeSet>
 </databaseChangeLog>

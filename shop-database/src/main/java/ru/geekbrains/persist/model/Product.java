@@ -38,6 +38,7 @@ public class Product implements Serializable {
         this.category = category;
         this.brand = brand;}
 
+
     public Brand getBrand() {
         return brand;
     }
@@ -56,7 +57,7 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public void setName(String title) {
+    public void setName(String name) {
         this.name = name;
     }
 

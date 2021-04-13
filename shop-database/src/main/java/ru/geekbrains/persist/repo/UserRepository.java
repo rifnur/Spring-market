@@ -3,5 +3,8 @@ package ru.geekbrains.persist.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.geekbrains.persist.model.User;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long>{
+    Optional<User> findUserByLogin(String name);
 }

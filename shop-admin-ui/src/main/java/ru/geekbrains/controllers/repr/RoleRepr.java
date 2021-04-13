@@ -1,10 +1,8 @@
 package ru.geekbrains.controllers.repr;
 
 import ru.geekbrains.persist.model.Role;
-import ru.geekbrains.persist.model.User;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.Set;
 
 public class RoleRepr {
 

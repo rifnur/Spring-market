@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "products")
@@ -15,15 +14,10 @@ public class Product implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column  (name = "title", length = 150, nullable = false)
-    private String title;
+    @Column  (name = "name", nullable = false)
+    private String name;
 
-    @Column
-            (name = "description", length = 255, nullable = false)
-    private String description;
-
-    @Column
-            (name = "price", nullable = false)
+    @Column (name = "price")
     private BigDecimal price;
 
     @ManyToOne(optional = false)
@@ -38,10 +32,8 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(Long id, String title, BigDecimal price, Category category, Brand brand) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
+    public Product(String name, BigDecimal price, Category category, Brand brand) {
+        this.name = name;
         this.price = price;
         this.category = category;
         this.brand = brand;}
@@ -64,15 +56,11 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String title) {
+        this.name = name;
     }
 
-    public String getTitle() {  return title;    }
-
-    public String getDescription() {  return description; }
-
-    public void setDescription(String description) {  this.description = description;  }
+    public String getName() {  return name;    }
 
     public BigDecimal getPrice() {
         return price;
@@ -89,18 +77,4 @@ public class Product implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return id.equals(product.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
 }

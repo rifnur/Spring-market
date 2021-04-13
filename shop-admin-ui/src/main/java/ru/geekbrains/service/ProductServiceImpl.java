@@ -59,7 +59,7 @@ public class ProductServiceImpl implements ProductService, Serializable {
     public void save(ProductRepr productRepr) throws IOException {
         Product product = (productRepr.getId() != null) ? productRepository.findById(productRepr.getId())
                 .orElseThrow(NotFoundException::new) : new Product();
-        product.setTitle(productRepr.getTitle());
+        product.setName(productRepr.getName());
         product.setCategory(productRepr.getCategory());
         product.setBrand(productRepr.getBrand());
         product.setPrice(productRepr.getPrice());

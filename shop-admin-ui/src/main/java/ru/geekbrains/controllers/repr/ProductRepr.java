@@ -15,7 +15,7 @@ public class ProductRepr implements Serializable {
 
     private Long id;
 
-    private String title;
+    private String name;
 
     private BigDecimal price;
 
@@ -32,7 +32,7 @@ public class ProductRepr implements Serializable {
 
     public ProductRepr(Product product) {
         this.id = product.getId();
-        this.title = product.getTitle();
+        this.name = product.getName();
         this.price = product.getPrice();
         this.category = product.getCategory();
         this.brand = product.getBrand();
@@ -49,12 +49,12 @@ public class ProductRepr implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public BigDecimal getPrice() {

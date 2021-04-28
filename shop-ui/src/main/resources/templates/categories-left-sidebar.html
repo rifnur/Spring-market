@@ -81,19 +81,20 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item dropdown submenu">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Home <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home Simple</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-carousel.html">Home Carousel</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-fullwidth.html">Home Full Width</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-parallax.html">Home Parallax</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-sidebar.html">Home Boxed</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="home-fixed-menu.html">Home Fixed</a></li>
-                                    </ul>
-                                </li>
+                                <li class="nav-item dropdown submenu"><a class="nav-link" href="/">Главная</a></li>
+<!--                                <li class="nav-item dropdown submenu">                                -->
+<!--                                    <a class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                    Главная <i class="fa fa-angle-down" aria-hidden="true"></i>-->
+<!--                                    </a>-->
+<!--                                    <ul class="dropdown-menu">-->
+<!--                                        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>-->
+<!--                                        <li class="nav-item"><a class="nav-link" href="home-carousel.html">Home Carousel</a></li>-->
+<!--                                        <li class="nav-item"><a class="nav-link" href="home-fullwidth.html">Home Full Width</a></li>-->
+<!--                                        <li class="nav-item"><a class="nav-link" href="home-parallax.html">Home Parallax</a></li>-->
+<!--                                        <li class="nav-item"><a class="nav-link" href="home-sidebar.html">Home Boxed</a></li>-->
+<!--                                        <li class="nav-item"><a class="nav-link" href="home-fixed-menu.html">Home Fixed</a></li>-->
+<!--                                    </ul>-->
+<!--                                </li>-->
                                 <li class="nav-item dropdown submenu">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Pages <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -202,7 +203,25 @@
                                             <div class="l_p_text">
                                                 <ul>
                                                     <li class="p_icon"><a th:href="@{/product/{id}(id = ${prod.id})}"><i class="icon_piechart"></i></a></li>
-                                                    <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
+<!--                                                    <li><a class="add_cart_btn" href="/cart">Add To Cart</a></li>-->
+
+
+
+                                                    <li>
+                                                        <a th:method="post" th:action="@{/cart}">
+                                                            <input type="hidden" name="productId" th:value="${prod.id}">
+<!--                                                            <div >-->
+<!--                                                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 )-->
+<!--                                                                    result.value&#45;&#45;;return false;" type="button"></button>-->
+<!--                                                                <button onclick="var  value="1";  type="button"></button>-->
+<!--                                                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"-->
+<!--                                                                         type="button"></button>-->
+<!--                                                            </div>-->
+                                                            <button type="submit" class="add_cart_btn">add to cart</button>
+                                                        </a>
+                                                    </li>
+
+
                                                     <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
                                                 </ul>
                                                 <h4>[[${prod.name}]]</h4>

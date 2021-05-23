@@ -1,21 +1,25 @@
 package ru.geekbrains.controller.repr;
 
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
 
-public class ProductRepr {
+public class ProductRepr implements Serializable {
 
-    private final Long id;
+    private Long id;
 
-    private final String name;
+    private String name;
 
-    private final BigDecimal price;
+    private BigDecimal price;
 
-    private final Long pictureId;
+    private Long pictureId;
 
-    private final List<Long> pictureIds;
+    private List<Long> pictureIds;
+
+    public ProductRepr() {
+    }
 
     public ProductRepr(Long id, String name, BigDecimal price, Long pictureId, List<Long> pictureIds) {
         this.id = id;
@@ -27,6 +31,10 @@ public class ProductRepr {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -45,4 +53,11 @@ public class ProductRepr {
         return pictureIds;
     }
 
+    public void setName(String name) {   this.name = name;   }
+
+    public void setPrice(BigDecimal price) {  this.price = price;  }
+
+    public void setPictureId(Long pictureId) { this.pictureId = pictureId; }
+
+    public void setPictureIds(List<Long> pictureIds) { this.pictureIds = pictureIds; }
 }

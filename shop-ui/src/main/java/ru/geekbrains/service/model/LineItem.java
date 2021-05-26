@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static java.math.BigDecimal.valueOf;
+
 public class LineItem implements Serializable {
 
     private Long productId;
@@ -88,4 +90,5 @@ public class LineItem implements Serializable {
     public int hashCode() {
         return Objects.hash(productId, color, material);
     }
+
 }
